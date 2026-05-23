@@ -153,8 +153,12 @@
   }
 
   .center-enroll {
-    top: 55%;
-    border: 3px solid red;
+    position: relative;
+    top: auto;
+    border: none;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
   }
 
   .center-enroll-btn {
@@ -168,13 +172,16 @@
   position: relative;
 }
 
-/* 🔥 FORCE BUTTON ON TOP */
+/* Place the enroll button below the carousel */
 .center-enroll {
-  position: absolute;
-  top: 82%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;   /* 🔥 higher than everything */
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 1.25rem auto 0;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
 }
 
 /* BUTTON STYLE */

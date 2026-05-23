@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Carousel, Button, Row, Col } from "react-bootstrap";
 import "./Courses.css";
+import Navbar from "./Navbar";
 
 const courses = [
   {
@@ -38,6 +39,8 @@ const CarouselComponent = () => {
 
   return (
     <div className="main-container container-fluid">
+
+      <Navbar noBg />
 
       <div className="layout-wrapper">
 

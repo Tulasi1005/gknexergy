@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import './Navbar.css';
 
-/*import LogoImg from './GK_NEXERGY_4.png'; */
-
 const menuItems = [
   'Start Here',
   'Courses',
@@ -13,8 +11,9 @@ const menuItems = [
   'Contact',
 ];
 
-const Navbar = () => {
+const Navbar = ({ noBg = false }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
   const containerRef = useRef(null);
   const indicatorRef = useRef(null);
   const itemRefs = useRef([]);
@@ -43,15 +42,25 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [activeIndex]);
 
-  return (
-    <div className="bg">
-     <nav className="navbar">
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
+  const navMarkup = (
+    <nav className="navbar">
       <div className="navbar-content">
-        <a href="#GK_NEXERGY" className="navbar-logo">
-          {/* *** 2. UPDATE THIS IMG TAG *** */}
-          {/* We use the imported LogoImg variable inside curly braces. */}
+        <a href="#GK_NEXERGY" className="navbar-logo" aria-label="GK NEXERGY">
+          {/* Logo placeholder */}
         </a>
-        <div className="nav-links-wrapper">
+
+        <button
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <div className={`nav-links-wrapper ${menuOpen ? 'open' : ''}`}>
           <ul ref={containerRef} className="nav-center">
             <div ref={indicatorRef} className="nav-indicator"></div>
             {menuItems.map((item, index) => (
@@ -59,15 +68,21 @@ const Navbar = () => {
                 key={index}
                 ref={(el) => (itemRefs.current[index] = el)}
                 className={index === activeIndex ? 'active' : ''}
-                onClick={() => setActiveIndex(index)}
-              ><a href={`/${item.replace(/\s+/g, '-')}`}>{item}</a>
+                onClick={() => {
+                  setActiveIndex(index);
+                  setMenuOpen(false);
+                }}
+              >
+                <a href={`/${item.replace(/\s+/g, '-')}`}>{item}</a>
               </li>
             ))}
           </ul>
         </div>
       </div>
     </nav>
-    </div>
   );
+
+  return noBg ? navMarkup : <div className="bg">{navMarkup}</div>;
 };
+
 export default Navbar;
