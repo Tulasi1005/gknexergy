@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../../Navbar";
+// import Navbar from "../../Navbar";
 import nexergyLogo from "../../GK_NEXERGY_4.png";
 import "./subgroup.css";
 
