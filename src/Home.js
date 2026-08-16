@@ -37,7 +37,7 @@ export default function Home() {
 
           <button
             className="cta fade-in delay3"
-            onClick={() => navigate("/navbar")}
+            onClick={() => navigate("/start-here")}
           >
             Discover the Vision
           </button>

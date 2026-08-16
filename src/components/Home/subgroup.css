@@ -1,0 +1,433 @@
+.start-here-page {
+    min-height: 100vh;
+    color: #eff7fb;
+    background: #070b12;
+    overflow-x: hidden;
+}
+
+.start-here-page{
+    position: relative;
+    background: #070b12;
+}
+
+.service-atlas {
+    position: relative;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 58px 36px 76px;
+}
+
+.service-atlas::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: linear-gradient(rgba(128, 174, 199, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(128, 174, 199, 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(90deg, black, transparent);
+    pointer-events: none;
+}
+
+.atlas-heading {
+    position: relative;
+    z-index: 1;
+    animation: atlas-enter 720ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.atlas-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 34px;
+    color: #a5c0d1;
+    font-family: Arial, sans-serif;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.atlas-brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    object-position: center 38%;
+    border: 1px solid rgba(105, 213, 234, 0.55);
+    border-radius: 50%;
+}
+
+.atlas-heading>p {
+    margin: 0 0 12px;
+    color: #66d5e7;
+    font-family: Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.atlas-heading h1 {
+    margin: 0;
+    color: #fff;
+    font-family: "Catchy-Mager", Arial, sans-serif;
+    font-size: clamp(2.6rem, 5vw, 4.7rem);
+    line-height: 1.04;
+}
+
+.atlas-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(330px, 0.8fr);
+    gap: clamp(30px, 6vw, 90px);
+    align-items: center;
+    margin-top: 45px;
+}
+
+.active-service {
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+    padding: 38px;
+    background: linear-gradient(145deg, rgba(15, 31, 45, 0.95), rgba(6, 15, 25, 0.97));
+    border: 1px solid color-mix(in srgb, var(--service-color) 42%, transparent);
+    border-radius: 8px;
+    box-shadow: 0 25px 48px rgba(0, 0, 0, 0.28);
+    animation: active-switch 600ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.active-service::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.13;
+    background: radial-gradient(circle at 80% 20%, var(--service-color), transparent 34%);
+    pointer-events: none;
+}
+
+.service-visual {
+    position: absolute;
+    top: 33px;
+    right: 36px;
+    width: 150px;
+    aspect-ratio: 1;
+}
+
+.visual-ring {
+    position: absolute;
+    border: 1px solid var(--service-color);
+    border-radius: 50%;
+}
+
+.ring-one {
+    inset: 0;
+    border-style: dashed;
+    opacity: 0.48;
+    animation: orbit 18s linear infinite;
+}
+
+.ring-two {
+    inset: 18%;
+    border-color: rgba(255, 255, 255, 0.35);
+    animation: orbit-reverse 12s linear infinite;
+}
+
+.visual-mark {
+    position: absolute;
+    inset: 30%;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--service-color);
+    border-radius: 50%;
+    color: var(--service-color);
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 0 24px color-mix(in srgb, var(--service-color) 30%, transparent);
+}
+
+.visual-point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #071019;
+    border-radius: 50%;
+    background: var(--service-color);
+    box-shadow: 0 0 12px var(--service-color);
+}
+
+.point-one {
+    top: 13%;
+    right: 9%;
+    animation: point-pulse 2s infinite ease-in-out;
+}
+
+.point-two {
+    bottom: 17%;
+    left: 7%;
+    animation: point-pulse 2s 800ms infinite ease-in-out;
+}
+
+.active-label {
+    position: relative;
+    margin: 90px 0 9px;
+    color: var(--service-color);
+    font-family: Arial, sans-serif;
+    font-size: 0.71rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.active-service h2 {
+    position: relative;
+    max-width: 360px;
+    margin: 0;
+    color: #fff;
+    font-family: "Catchy-Mager", Arial, sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+}
+
+.active-description {
+    position: relative;
+    max-width: 485px;
+    margin: 16px 0 25px;
+    color: #b6c8d6;
+    font-family: Arial, sans-serif;
+    font-size: 0.96rem;
+    line-height: 1.65;
+}
+
+.active-footer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.active-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.active-tags span {
+    padding: 5px 8px;
+    border: 1px solid color-mix(in srgb, var(--service-color) 40%, transparent);
+    color: #c8dbe7;
+    font-family: Arial, sans-serif;
+    font-size: 0.67rem;
+}
+
+.active-footer a {
+    color: var(--service-color);
+    font-family: Arial, sans-serif;
+    font-size: 0.77rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.active-footer a span {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 180ms ease;
+}
+
+.active-footer a:hover span {
+    transform: translateX(5px);
+}
+
+.service-selector {
+    display: grid;
+    border-top: 1px solid rgba(152, 194, 217, 0.24);
+    animation: atlas-enter 700ms 160ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-selector button {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 24px;
+    align-items: center;
+    gap: 11px;
+    min-height: 94px;
+    padding: 15px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(152, 194, 217, 0.24);
+    color: #bfd0dc;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: padding 260ms ease, color 260ms ease, background-color 260ms ease;
+}
+
+.service-selector button:hover,
+.service-selector button.is-selected {
+    padding-inline: 14px;
+    color: #fff;
+    background: color-mix(in srgb, var(--service-color) 10%, transparent);
+}
+
+.service-selector button:focus-visible {
+    outline: 2px solid var(--service-color);
+    outline-offset: -2px;
+}
+
+.selector-number {
+    color: var(--service-color);
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.selector-copy {
+    display: grid;
+    gap: 5px;
+}
+
+.selector-copy small {
+    color: #94adbd;
+    font-family: Arial, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.selector-copy strong {
+    font-family: "Catchy-Mager", Arial, sans-serif;
+    font-size: 1.32rem;
+}
+
+.selector-arrow {
+    color: var(--service-color);
+    font-size: 1.15rem;
+    transform: translateX(-5px);
+    opacity: 0;
+    transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.service-selector button.is-selected .selector-arrow,
+.service-selector button:hover .selector-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@keyframes atlas-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes active-switch {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orbit-reverse {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes point-pulse {
+    50% {
+        transform: scale(1.55);
+        opacity: 0.58;
+    }
+}
+
+@media (max-width: 780px) {
+    .service-atlas {
+        padding: 42px 20px 60px;
+    }
+
+    .atlas-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .active-service {
+        min-height: 370px;
+    }
+
+    .service-visual {
+        width: 132px;
+        right: 20px;
+        top: 24px;
+    }
+
+    .active-label {
+        margin-top: 90px;
+    }
+}
+
+.service-selector button {
+    min-height: 82px;
+}
+
+@media (max-width: 430px) {
+    .atlas-brand {
+        margin-bottom: 25px;
+    }
+
+    .atlas-heading h1 {
+        font-size: 2.45rem;
+    }
+
+    .active-service {
+        min-height: 390px;
+        padding: 25px;
+    }
+
+    .service-visual {
+        right: 12px;
+        width: 118px;
+    }
+
+    .active-service h2 {
+        max-width: 260px;
+    }
+
+    .service-selector button {
+        grid-template-columns: 34px minmax(0, 1fr) 22px;
+    }
+
+    .selector-copy strong {
+        font-size: 1.17rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .atlas-heading,
+    .active-service,
+    .service-selector,
+    .visual-ring,
+    .visual-point {
+        animation: none;
+    }
+
+    .active-service *,
+    .service-selector button {
+        transition: none;
+    }
+}

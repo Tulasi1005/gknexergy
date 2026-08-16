@@ -1,88 +1,57 @@
-import React, { useState, useRef, useEffect } from "react";
-import './Navbar.css';
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink, useLocation } from "react-router-dom";
+
+import "./Navbar.css";
 
 const menuItems = [
-  'Start Here',
-  'Courses',
-  'FAQ',
-  'Projects',
-  'Join Us',
-  'Resources',
-  'Contact',
+  { label: "Start Here", path: "/" },
+  { label: "Courses", path: "/courses" },
+  { label: "FAQ", path: "/faq" },
+  { label: "Projects", path: "/projects" },
+  { label: "Join Us", path: "/join-us" },
+  { label: "Resources", path: "/resources" },
+  { label: "Contact", path: "/contact" }
 ];
 
-const Navbar = ({ noBg = false }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const containerRef = useRef(null);
-  const indicatorRef = useRef(null);
-  const itemRefs = useRef([]);
+function NavigationBar() {
+  const location = useLocation();
 
-  const moveIndicator = (index) => {
-    const activeItem = itemRefs.current[index];
-    const container = containerRef.current;
-    const indicator = indicatorRef.current;
+  return (
+    <Navbar expand="lg" className="custom-navbar">
+      <Container>
+        <Navbar.Toggle aria-controls="navbar-nav" />
 
-    if (!activeItem || !container || !indicator) return;
-
-    const activeRect = activeItem.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-
-    const indicatorLeft = activeRect.left - containerRect.left;
-    const indicatorWidth = activeRect.width;
-
-    container.style.setProperty('--indicator-left', `${indicatorLeft}px`);
-    container.style.setProperty('--indicator-width', `${indicatorWidth}px`);
-  };
-
-  useEffect(() => {
-    moveIndicator(activeIndex);
-    const handleResize = () => moveIndicator(activeIndex);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [activeIndex]);
-
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-
-  const navMarkup = (
-    <nav className="navbar">
-      <div className="navbar-content">
-        <a href="#GK_NEXERGY" className="navbar-logo" aria-label="GK NEXERGY">
-          {/* Logo placeholder */}
-        </a>
-
-        <button
-          className="menu-toggle"
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
-          type="button"
+        <Navbar.Collapse
+          id="navbar-nav"
+          className="justify-content-center"
         >
-          ☰
-        </button>
+          <Nav className="navbar-links">
+            {menuItems.map((item) => {
+              const isStartHere =
+                item.path === "/" &&
+                (location.pathname === "/" ||
+                  location.pathname === "/start-here");
 
-        <div className={`nav-links-wrapper ${menuOpen ? 'open' : ''}`}>
-          <ul ref={containerRef} className="nav-center">
-            <div ref={indicatorRef} className="nav-indicator"></div>
-            {menuItems.map((item, index) => (
-              <li
-                key={index}
-                ref={(el) => (itemRefs.current[index] = el)}
-                className={index === activeIndex ? 'active' : ''}
-                onClick={() => {
-                  setActiveIndex(index);
-                  setMenuOpen(false);
-                }}
-              >
-                <a href={`/${item.replace(/\s+/g, '-')}`}>{item}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </nav>
+              return (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={
+                    isStartHere ||
+                    location.pathname === item.path
+                      ? "nav-item-link active-link"
+                      : "nav-item-link"
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              );
+            })}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
+}
 
-  return noBg ? navMarkup : <div className="bg">{navMarkup}</div>;
-};
-
-export default Navbar;
+export default NavigationBar;

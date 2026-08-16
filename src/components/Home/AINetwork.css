@@ -1,0 +1,481 @@
+/* ===========================
+   MAIN CONTAINER - WHITE BACKGROUND
+=========================== */
+.network-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  background-image: url(https://thrivenextgen.com/wp-content/uploads/AdobeStock_162765779_45-scaled.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background: #ffffff; white background */
+}
+
+/* ===========================
+   LEFT PANEL
+=========================== */
+.left-panel {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 36px;
+  z-index: 50;
+}
+
+.left-content {
+  max-width: 380px;
+  text-align: center;
+}
+
+/* Stacked title (keep your existing styles) */
+.what-we-do {
+  margin: 0 0 28px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.what-we-do .line-1,
+.what-we-do .line-2,
+.what-we-do .line-3 {
+  display: block;
+  font-size: 4.8rem;
+}
+
+.what-we-do .line-1 {
+  color: #f4f5f8;
+  text-shadow: 0 2px 10px rgba(247, 248, 250, 0.15);
+}
+
+.what-we-do .line-2 {
+  background: linear-gradient(90deg, #22d3ee 0%, #3b82f6 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 18px rgba(59, 130, 246, 0.45));
+}
+
+.what-we-do .line-3 {
+  background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 55%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 18px rgba(139, 92, 246, 0.4));
+}
+
+/* New paragraph */
+.left-description {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.7;
+  color: #f0f1f3;
+  font-weight: 350;
+  opacity: 0.9;
+  background: rgba(51, 51, 51, 0.55);
+}
+
+@media (max-width: 1200px) {
+  .what-we-do .line-1,
+  .what-we-do .line-2,
+  .what-we-do .line-3 {
+    font-size: 3.8rem;
+  }
+  .left-description {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .what-we-do .line-1,
+  .what-we-do .line-2,
+  .what-we-do .line-3 {
+    font-size: 3.2rem;
+  }
+  .left-description {
+    font-size: 0.95rem;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .what-we-do .line-1,
+  .what-we-do .line-2,
+  .what-we-do .line-3 {
+    font-size: 2.6rem;
+  }
+  .left-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* ===== Feature Cards ===== */
+.feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 36px;
+  max-width: 420px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.06);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.3);
+  background: white;
+}
+
+.card-icon {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.card-text h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 650;
+  color: #1e1b4b;
+}
+
+.card-text p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: #4c5055;
+}
+
+.left-description {
+  margin-bottom: 8px; /* reduce if it feels too spaced */
+}
+
+/* ===========================
+   RIGHT PANEL (70%)
+=========================== */
+.right-panel {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Subtle grid for white background */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ===========================
+   CENTER NODE + LOGO
+=========================== */
+.center-node {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: radial-gradient(circle, #3b82f6, #1e3a8a); */
+  box-shadow:
+    0 0 40px rgba(153, 150, 132, 0.719),
+    0 0 90px rgba(59, 130, 246, 0.35);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.center-logo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+/* ===========================
+   ORBIT SYSTEM - LONGER RADIUS
+=========================== */
+.orbit-system {
+  position: relative;
+  width: 860px;          /* increased */
+  height: 860px;
+  overflow: visible;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: rotate(var(--angle));
+  animation: orbit1 65s linear infinite;
+}
+
+.orbit-item:hover {
+  z-index: 500;
+}
+
+.orbit-item:has(.featured-node:hover) {
+  z-index: 1000;
+}
+
+/* ===========================
+   CONNECTION LINES - LONGER
+=========================== */
+.connector {
+  position: absolute;
+  width: 280px;          /* increased from 220px */
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.75),
+    rgba(139, 92, 246, 0.45)
+  );
+  transform: translateY(-50%);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+/* Extra glowing points on the lines */
+.line-dot {
+  position: absolute;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #3b82f6;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 10px #3b82f6,
+    0 0 20px rgba(59, 130, 246, 0.6);
+  z-index: 5;
+}
+
+/* Second dot → GOLD */
+.line-dot:nth-of-type(2) {
+  background: #3b82f6;
+  box-shadow:
+    0 0 10px #868685,
+    0 0 22px rgba(170, 168, 164, 0.65);
+}
+
+/* ===========================
+   NODES - LONGER POSITION
+=========================== */
+.node {
+  position: absolute;
+  left: 280px;           /* increased from 220px */
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #0f172a;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #3b82f6;
+  box-shadow:
+    0 4px 20px rgba(59, 130, 246, 0.25),
+    0 0 0 4px rgba(59, 130, 246, 0.08);
+  animation: counterRotate 65s linear infinite;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Featured nodes */
+.featured-node {
+  width: 165px;
+  height: 165px;
+  z-index: 100;
+}
+
+.featured-node:hover {
+  z-index: 10000;
+  /* NO transform here – this was breaking the upright rotation */
+  border-color: #2563eb;
+  box-shadow:
+    0 8px 32px rgba(59, 130, 246, 0.4),
+    0 0 0 6px rgba(59, 130, 246, 0.15);
+}
+
+.small-node {
+  width: 74px;
+  height: 74px;
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+/* ===========================
+   ANIMATIONS (content always upright)
+=========================== */
+@keyframes orbit1 {
+  from {
+    transform: rotate(var(--angle));
+  }
+  to {
+    transform: rotate(calc(var(--angle) + 360deg));
+  }
+}
+
+@keyframes counterRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle)));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle) - 360deg));
+  }
+}
+
+/* ===========================
+   NODE CONTENT
+=========================== */
+.node-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.node-content span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.small-node .node-content span {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ===========================
+   POPUP
+=========================== */
+.popup {
+  position: absolute;
+  bottom: 175px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 210px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #0f172a;
+  color: white;
+  font-size: 13.5px;
+  line-height: 1.55;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 99999;
+  pointer-events: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.featured-node:hover .popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===========================
+   ANIMATIONS (upright text)
+=========================== */
+@keyframes orbit1 {
+  from {
+    transform: rotate(var(--angle));
+  }
+  to {
+    transform: rotate(calc(var(--angle) + 360deg));
+  }
+}
+
+@keyframes counterRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle)));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle) - 360deg));
+  }
+}
+@media (max-width: 1200px) {
+  .orbit-system {
+    width: 720px;
+    height: 720px;
+  }
+  .connector {
+    width: 230px;
+  }
+  .node {
+    left: 230px;
+  }
+  .line-dot:nth-of-type(1) {
+    left: 80px !important;
+  }
+  .line-dot:nth-of-type(2) {
+    left: 155px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .orbit-system {
+    width: 560px;
+    height: 560px;
+  }
+  .connector {
+    width: 175px;
+  }
+  .node {
+    left: 175px;
+  }
+}
+
+@media (max-width: 600px) {
+  .orbit-system {
+    width: 400px;
+    height: 400px;
+  }
+  .connector {
+    width: 115px;
+  }
+  .node {
+    left: 115px;
+  }
+  .line-dot {
+    display: none;
+  }
+}

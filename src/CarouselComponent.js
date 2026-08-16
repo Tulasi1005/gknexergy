@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel, Button, Row, Col } from "react-bootstrap";
 import "./Courses.css";
-import Navbar from "./Navbar";
+
 
 const courses = [
   {
@@ -31,6 +31,14 @@ const CarouselComponent = () => {
   const [index, setIndex] = useState(0);
   const [showFull, setShowFull] = useState(false);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((currentIndex) => (currentIndex + 1) % courses.length);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -40,7 +48,6 @@ const CarouselComponent = () => {
   return (
     <div className="main-container container-fluid">
 
-      <Navbar noBg />
 
       <div className="layout-wrapper">
 
@@ -53,7 +60,7 @@ const CarouselComponent = () => {
               <Carousel
                 activeIndex={index}
                 onSelect={handleSelect}
-                interval={3000}
+                interval={null}
               >
                 {courses.map((course) => (
                   <Carousel.Item key={course.id} className="h-100">
@@ -82,6 +89,7 @@ const CarouselComponent = () => {
             <div className="box roadmap-wrapper">
 
               <img
+                key={selectedCourse.id}
                 src={selectedCourse.roadmap}
                 alt="Roadmap"
                 className="roadmap-img"
@@ -95,16 +103,16 @@ const CarouselComponent = () => {
 
       </div>
 
-<div className="center-enroll">
-          <Button
-            className="center-enroll-btn bg-primary"
-            onClick={() =>
-              window.open(selectedCourse.form, "_blank")
-            }
-          >
-            🚀 Enroll Now
-          </Button>
-        </div>
+      <div className="center-enroll">
+        <Button
+          className="center-enroll-btn bg-primary"
+          onClick={() =>
+            window.open(selectedCourse.form, "_blank")
+          }
+        >
+          🚀 Enroll Now
+        </Button>
+      </div>
 
       {/* 🔥 CENTER ENROLL BUTTON */}
 

@@ -1,212 +1,80 @@
-/* Global Reset */
-@font-face {
-  font-family: "Moralana";
-  src: url("./fonts/Moralana-Regular.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
+.custom-navbar {
+  background: #0a2747;
+  padding: 12px 0;
 }
 
-@font-face {
-  font-family: "Catchy-Mager";
-  src: url("./fonts/Catchy-Mager.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-.bg {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: visible;
-}
-
-.bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("./GK_NEXERGY_4.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
-.bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.358);
-  backdrop-filter: blur(1px);
-  z-index: 1;
-}
-
-.navbar {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 3;
-}
-
-/* Solid navy background for the navbar */
-.navbar {
-  background: #001f3f; /* navy blue */
-  color: #ffffff;
-}
-
-.navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding: 12px 16px;
-  gap: 1rem;
-}
-
-.navbar-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-}
-
-.menu-toggle {
-  display: none;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: white;
-  font-size: 1.5rem;
-  padding: 0.8rem 1rem;
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-.nav-links-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.nav-center {
-  position: relative;
-  list-style: none;
-  display: flex;
+.navbar-links {
   gap: 40px;
-  margin: 0;
-  padding: 0;
-  align-items: center;
 }
 
-.nav-center li {
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+.nav-item-link {
+  position: relative;
 
-.nav-center a {
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  color: white;
+
   text-decoration: none;
-  color: whitesmoke;
-  font-size: 1rem;
-  font-family: "Catchy-Mager", Geneva, Tahoma, sans-serif;
-  display: block;
-  white-space: nowrap;
-}
 
-.nav-center li:hover {
-  background-color: lightgrey;
-}
-
-.nav-center li:hover a {
-  color: #051630;
-}
-
-.nav-center li.active {
-  background-color: lightgrey;
-}
-
-.nav-center li.active a {
-  color: #051630;
-  font-weight: bold;
-}
-
-.nav-indicator {
-  position: absolute;
-  bottom: -5px;
-  height: 3px;
-  background: #00d2ff;
-  border-radius: 2px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 8px #00d2ff;
-  width: var(--indicator-width, 0px);
-  left: var(--indicator-left, 0px);
+}
+
+.nav-item-link:hover {
+  color: #4b94e6;
+}
+
+.active-link {
+  background: linear-gradient(
+    180deg,
+    #e7ebf0,
+    #d0d7e2
+  );
+
+  color: #0a2747 !important;
+
+  font-weight: 600;
+}
+
+.active-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 100%;
+
+  height: 3px;
+
+  border-radius: 3px;
+
+  background: #11a9ff;
+
+  box-shadow: 0 0 8px #11a9ff;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
 }
 
 @media (max-width: 992px) {
-  .nav-center {
-    gap: 28px;
-  }
+  .navbar-links {
+    gap: 15px;
 
-  .nav-center a {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar-content {
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
   }
 
-  .menu-toggle {
-    display: inline-flex;
-  }
-
-  .nav-links-wrapper {
+  .nav-item-link {
     width: 100%;
-    order: 2;
-  }
 
-  .nav-links-wrapper:not(.open) .nav-center {
-    display: none;
-  }
-
-  .nav-center {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 12px;
-    padding: 12px 0;
-    background: rgba(0, 0, 0, 0.45);
-    border-radius: 16px;
-    backdrop-filter: blur(8px);
-  }
-
-  .nav-center li {
-    width: 100%;
     text-align: center;
-    padding: 10px 0;
-    margin: 0 12px;
-  }
-
-  .nav-center a {
-    font-size: 1rem;
-    white-space: normal;
-  }
-
-  .nav-indicator {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-content {
-    padding: 12px 12px 8px;
-  }
-
-  .menu-toggle {
-    font-size: 1.35rem;
-    padding: 0.75rem 0.95rem;
   }
 }
