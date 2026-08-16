@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./Home";
-import Homebanner from "./components/Home/Homebanner";
 import AINetwork from "./components/Home/AINetwork";
 import CarouselComponent from "./CarouselComponent";
 import StartHere from "./components/Home/subgroup";
